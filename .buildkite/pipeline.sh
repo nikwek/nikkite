@@ -8,5 +8,5 @@ echo "steps:"
 
 # add a new command step to run the tests in each test directory
 for test_dir in test/*/; do
-  echo "  - command: \"run_tests "${test_dir}"\""
+  echo "  - command: \"echo \"Hello, World!\"\""
 done
