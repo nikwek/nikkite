@@ -20,7 +20,7 @@ echo "steps:"
 
 # add a new command step based on agent availability
 if [[ "$STR" == *"$SUB"* ]]; then
-    echo $VAR
+    echo "$VAR"
 else
     echo "  - command: echo \"skipped\"" 
 fi
