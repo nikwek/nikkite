@@ -8,16 +8,19 @@ TOKEN="75d179f07f79944943de79a95de748099ede30db"
 # Query all agents and set the SUB string to the desired agent hostname
 STR=$(curl -H "Authorization: Bearer $TOKEN" https://api.buildkite.com/v2/organizations/niks-playground/agents)
 SUB="swarm-1-1"
+read -r -d '' VAR << EOM
+- command: echo "It worked!"
+  label: ":sparkles:"
+  agents:
+      queue: "special"
+EOM
 
 # begin the pipeline.yml file
 echo "steps:"
 
 # add a new command step based on agent availability
 if [[ "$STR" == *"$SUB"* ]]; then
-    echo "  - command: \"echo \"It worked!\" \""
-    echo "    label: \":sparkles:\""
-    echo "    agents:"
-    echo "      queue: \"special\""
+    echo $VAR
 else
-    echo "  - command: \"echo \"skipped\" \"" 
+    echo "  - command: echo \"skipped\"" 
 fi
