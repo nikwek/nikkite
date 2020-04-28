@@ -1,8 +1,6 @@
 steps:
 - command: src/script.sh | buildkite-agent pipeline upload
-  label: ":hammer: Test"
-  key: "first"
+  label: ":hammer:"
 - wait
 - command: echo "Final step in YAML file"
-  label: ":shipit: Done!"
-  depends_on: "first" 
+  label: ":smile: Done!" 
