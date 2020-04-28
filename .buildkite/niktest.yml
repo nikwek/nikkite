@@ -1,5 +1,5 @@
 steps:
-- command: ./script.sh | buildkite-agent pipeline upload
+- command: ./src/script.sh | buildkite-agent pipeline upload
   label: ":hammer: Test"
   key: "first"
 - wait
