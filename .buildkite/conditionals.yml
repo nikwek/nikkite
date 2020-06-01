@@ -1,0 +1,15 @@
+env:
+    TEST_CONDITION: true
+  
+  steps:
+  - command: echo $TEST_CONDITION
+    label: echo
+  - command: echo "string"
+    label: test-if-str
+    if: build.env("TEST_CONDITION") == "true"
+  - command: echo "string single quotes"
+    label: test-if-str-single-quotes
+    if: build.env("TEST_CONDITION") == 'true'
+  - command: echo "regex"
+    label: test-if-regex
+    if: build.env("TEST_CONDITION") =~ /true/
