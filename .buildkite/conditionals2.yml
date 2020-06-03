@@ -1,16 +1,16 @@
 steps:
-    - key: echo
-    command:
-    - echo $TEST_CONDITION
-    - key: test-if-str
-    if: build.env("TEST_CONDITION") == "true"
-    command:
-    - echo "string"
-    - key: test-if-str-single-quotes
-    if: build.env("TEST_CONDITION") == 'true'
-    command:
-    - echo "string single quotes"
-    - key: test-if-regex
-    if: build.env("TEST_CONDITION") =~ /true/
-    command:
-    - echo "regex"
+    - label: "echo"
+      command:
+      - "echo true"
+    - if: "build.env(\"TEST_CONDITION\") == \"true\""
+      label: "test-if-str"
+      command:
+      - "echo \"string\""
+    - if: "build.env(\"TEST_CONDITION\") == 'true'"
+      label: "test-if-str-single-quotes"
+      command:
+      - "echo \"string single quotes\""
+    - if: "build.env(\"TEST_CONDITION\") =~ /true/"
+      label: "test-if-regex"
+      command:
+      - "echo \"regex\""
