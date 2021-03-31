@@ -1,0 +1,15 @@
+steps:
+  - command: "echo hello"
+  - group: "hello group"
+    steps:
+      - command: "echo hello"
+      - wait
+      - command: "echo hello"
+        parallelism: 3
+  - group: ~
+    steps:
+      - command: "echo hello"
+      - wait
+      - command: "echo hello"
+  - command: "echo goodbye"
+    parallelism: 2
