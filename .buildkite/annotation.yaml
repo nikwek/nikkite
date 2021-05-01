@@ -1,5 +1,5 @@
 steps:
-  - block: "📝 $${ANNOTATE_LABEL:-Annotate}"
+  - block: "📝 ${ANNOTATE_LABEL:-Annotate}"
     fields:
       - text: Annotation Body
         key: body
